@@ -49,7 +49,7 @@ namespace InputDataForVolumePlanning
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            if (SelectedMenu >= 2) 
+            if (SelectedMenu >= 2 && SelectedMenu < 4) 
             {
                 DialogResult result = MessageBox.Show("Введённые данные будут утеряны, вы уверены?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.No) return;
@@ -67,7 +67,6 @@ namespace InputDataForVolumePlanning
             {
                 case 1: MainPanel.Controls.Add(IJT); break;
                 case 2:
-                    coefficientsInput = new CoefficientsInput(IJT.I, IJT.J, IJT.T);
                     MainPanel.Controls.Add(coefficientsInput);
                     break;
                 case 3:
@@ -86,7 +85,7 @@ namespace InputDataForVolumePlanning
         {
             switch (SelectedMenu) 
             {
-                case 1:  break;
+                case 1: coefficientsInput = new CoefficientsInput(IJT.I, IJT.J, IJT.T); break;
                 case 2: 
                     coefficientsInput.Save();
                     

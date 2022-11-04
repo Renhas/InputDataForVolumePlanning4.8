@@ -18,6 +18,7 @@ namespace InputDataForVolumePlanning
         List<int> controlledIds;
         BilateralInequality[] inequalities;
         List<float[]>[] segments;
+        bool IsInequalities;
         public ResultOutput(int I, int J, int T, List<int> sortedControlledIds, BilateralInequality[] inequalities, List<float[]>[] segments)
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace InputDataForVolumePlanning
             controlledIds = sortedControlledIds;
             this.inequalities = inequalities;
             this.segments = segments;
+            IsInequalities = false;
             BilateralToControlled();
             Solve();
         }
@@ -35,11 +37,14 @@ namespace InputDataForVolumePlanning
         {
             ResultList.Items.Clear();
             var system = CreateSystem();
-            var result = VolumePlanningAlgorythm.Run(system, 1000, 0.01f);
-            if (result is null) 
+            if (IsInequalities)
             {
-                ResultList.Items.Add("Система не совместна, решения нет");
-                return;
+                var result = VolumePlanningAlgorythm.Run(system, 1000, 0.01f);
+                if (result is null)
+                {
+                    ResultList.Items.Add("Система не совместна, решения нет");
+                    return;
+                }
             }
 
             ResultList.Items.Add("Нормо-часы:\n");
@@ -63,14 +68,21 @@ namespace InputDataForVolumePlanning
 
             for (int id = 0; id < controlledIds.Count; id++) 
             {
-                if (inequalities[controlledIds[id]].Coefficients == new MyVector(I * J * T)) continue;
+                if (inequalities[controlledIds[id]].Coefficients == new MyVector(I * J * T))
+                {
+                    var inequality = inequalities[controlledIds[id]] as ControlledBilateralInequality;
+                    inequality.SetSelectedPreference(inequality.PreferencesCount - 1);
+                    continue;
+                }
                 system.Add(inequalities[controlledIds[id]]);
+                IsInequalities = true;
             }
             for (int id = 0; id < I + J + T; id++) 
             {
                 if (inequalities[id].Coefficients == new MyVector(I * J * T)) continue;
                 if (controlledIds.Contains(id)) continue;
                 system.Add(inequalities[id]);
+                IsInequalities = true;
             }
             for (int id = 0; id < I * J * T; id++) 
             {
