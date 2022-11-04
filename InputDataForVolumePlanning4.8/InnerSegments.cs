@@ -25,8 +25,8 @@ namespace InputDataForVolumePlanning
         private void AddButton_Click(object sender, EventArgs e)
         {
             Segments.Add(new float[] { Segments.Last()[0], Segments.Last()[1] });
-            SegmentsPanel.Width += 275;
-            this.Width += 275;
+            SegmentsPanel.Width += 226;
+            this.Width += 226;
             if (Segments.Count > 1) DeleteButton.Visible = DeleteButton.Enabled = true;
             SegmentsPanelInit();
             SegmentsPanel.Refresh();
@@ -34,8 +34,8 @@ namespace InputDataForVolumePlanning
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             Segments.Remove(Segments.Last());
-            SegmentsPanel.Width -= 275;
-            this.Width -= 275;
+            SegmentsPanel.Width -= 226;
+            this.Width -= 226;
             if (Segments.Count == 1) DeleteButton.Visible = DeleteButton.Enabled = false;
             SegmentsPanelInit();
             SegmentsPanel.Refresh();
@@ -48,7 +48,7 @@ namespace InputDataForVolumePlanning
             var panel = new FlowLayoutPanel()
             {
                 BorderStyle = BorderStyle.FixedSingle,
-                Size = new Size(260, 30),
+                Size = new Size(220, 30),
                 Margin = new Padding(3),
                 FlowDirection = FlowDirection.LeftToRight
             };
@@ -57,7 +57,7 @@ namespace InputDataForVolumePlanning
             {
                 Increment = 1,
                 Enabled = false,
-                Size = new Size(120, 23),
+                Size = new Size(100, 23),
                 Minimum = 0,
                 Maximum = (decimal)Segments[0][0],
                 Value = (decimal)Segments[0][0]
@@ -67,7 +67,7 @@ namespace InputDataForVolumePlanning
             {
                 Increment = 1,
                 Enabled = false,
-                Size = new Size(120, 23),
+                Size = new Size(100, 23),
                 Minimum = 0,
                 Maximum = (decimal)Segments[0][1],
                 Value = (decimal)Segments[0][1]
@@ -81,7 +81,7 @@ namespace InputDataForVolumePlanning
                 panel = new FlowLayoutPanel()
                 {
                     BorderStyle = BorderStyle.FixedSingle,
-                    Size = new Size(260, 30),
+                    Size = new Size(220, 30),
                     Margin = new Padding(3),
                     FlowDirection = FlowDirection.LeftToRight,
                     Tag = i
@@ -90,7 +90,7 @@ namespace InputDataForVolumePlanning
                 firstNumeric = new NumericUpDown()
                 {
                     Increment = 1,
-                    Size = new Size(120, 23),
+                    Size = new Size(100, 23),
                     Minimum = (decimal)Segments[i - 1][0],
                     Maximum = (decimal)Segments[i][1],
                     Value = (decimal)Segments[i][0]
@@ -104,7 +104,7 @@ namespace InputDataForVolumePlanning
                 secondNumeric = new NumericUpDown()
                 {
                     Increment = 1,
-                    Size = new Size(120, 23),
+                    Size = new Size(100, 23),
                     Minimum = (decimal)Segments[i][0],
                     Maximum = (decimal)Segments[i - 1][1],
                     Value = (decimal)Segments[i][1]

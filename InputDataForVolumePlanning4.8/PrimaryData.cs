@@ -66,13 +66,16 @@ namespace InputDataForVolumePlanning
             switch (SelectedMenu) 
             {
                 case 1: MainPanel.Controls.Add(IJT); break;
-                case 2: 
+                case 2:
+                    coefficientsInput = new CoefficientsInput(IJT.I, IJT.J, IJT.T);
                     MainPanel.Controls.Add(coefficientsInput);
                     break;
                 case 3:
+                    controlledInput = new ControlledInput(IJT.I, IJT.J, IJT.T, coefficientsInput.controlledIds, coefficientsInput.inequalities);
                     MainPanel.Controls.Add(controlledInput);
                     break;
                 case 4:
+                    output = new ResultOutput(IJT.I, IJT.J, IJT.T, controlledInput.GetSortedControlled(), coefficientsInput.inequalities, controlledInput.GetSortedSegments());
                     MainPanel.Controls.Add(output);
                     break;
                 default: break;
@@ -83,13 +86,13 @@ namespace InputDataForVolumePlanning
         {
             switch (SelectedMenu) 
             {
-                case 1: coefficientsInput = new CoefficientsInput(IJT.I, IJT.J, IJT.T); break;
+                case 1:  break;
                 case 2: 
                     coefficientsInput.Save();
-                    controlledInput = new ControlledInput(IJT.I, IJT.J, IJT.T, coefficientsInput.controlledIds, coefficientsInput.inequalities);
+                    
                     break;
                 case 3:
-                    output = new ResultOutput(IJT.I, IJT.J, IJT.T, controlledInput.GetSortedControlled(), coefficientsInput.inequalities, controlledInput.GetSortedSegments());
+                    
                     break;
                 default: break;
             }

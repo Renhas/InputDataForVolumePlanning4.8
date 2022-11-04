@@ -49,7 +49,7 @@ namespace InputDataForVolumePlanning
             this.FirstPanel.Location = new System.Drawing.Point(0, 0);
             this.FirstPanel.Margin = new System.Windows.Forms.Padding(0);
             this.FirstPanel.Name = "FirstPanel";
-            this.FirstPanel.Size = new System.Drawing.Size(255, 30);
+            this.FirstPanel.Size = new System.Drawing.Size(220, 26);
             this.FirstPanel.TabIndex = 0;
             this.FirstPanel.Tag = "1";
             // 
@@ -57,23 +57,23 @@ namespace InputDataForVolumePlanning
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(3, 3);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown1.TabIndex = 0;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(129, 3);
+            this.numericUpDown2.Location = new System.Drawing.Point(109, 3);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown2.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown2.TabIndex = 1;
             // 
             // AddButton
             // 
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AddButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddButton.Location = new System.Drawing.Point(296, 0);
+            this.AddButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.AddButton.Location = new System.Drawing.Point(250, 0);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(20, 40);
+            this.AddButton.Size = new System.Drawing.Size(17, 35);
             this.AddButton.TabIndex = 1;
             this.AddButton.Text = "+";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -85,16 +85,16 @@ namespace InputDataForVolumePlanning
             this.SegmentsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SegmentsPanel.Location = new System.Drawing.Point(0, 0);
             this.SegmentsPanel.Name = "SegmentsPanel";
-            this.SegmentsPanel.Size = new System.Drawing.Size(275, 40);
+            this.SegmentsPanel.Size = new System.Drawing.Size(228, 35);
             this.SegmentsPanel.TabIndex = 2;
             // 
             // DeleteButton
             // 
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.DeleteButton.Enabled = false;
-            this.DeleteButton.Location = new System.Drawing.Point(276, 0);
+            this.DeleteButton.Location = new System.Drawing.Point(233, 0);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(20, 40);
+            this.DeleteButton.Size = new System.Drawing.Size(17, 35);
             this.DeleteButton.TabIndex = 3;
             this.DeleteButton.Text = "-";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -103,14 +103,14 @@ namespace InputDataForVolumePlanning
             // 
             // InnerSegments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.SegmentsPanel);
             this.Controls.Add(this.AddButton);
             this.Name = "InnerSegments";
-            this.Size = new System.Drawing.Size(316, 40);
+            this.Size = new System.Drawing.Size(267, 35);
             this.FirstPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
